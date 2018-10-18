@@ -4,6 +4,9 @@
     <meta charset="utf-8"/>
     <title>小臣DEMO</title>
     <style type="text/css">
+        body{
+            margin: 40px;
+        }
         h1 {
             color: red;
         }
@@ -15,27 +18,34 @@
         div {
             size: 20px;
             color: cadetblue;
+            margin: 20px;
         }
+
     </style>
     <script th:src="@{http://code.jquery.com/jquery-3.1.1.min.js}" type="text/javascript"></script>
     <script th:inline="javascript" type="text/javascript">
         $(function () {
 
             var hello = [[${hello}]];
-            console.info("hello=" + hello);
+            //console.info("hello=" + hello);
 
             var desc = [[${desc}]];
-            console.info("desc=" + desc);
+            //console.info("desc=" + desc);
 
             $(".btn").click(function () {
-
                 //$("p").slideToggle();
-
+                var txt = this.innerHTML;
+                //console.info(txt);
+                if ("CLICK OFF" == txt){
+                    this.innerHTML = "CLICK ON";
+                    //$(".btn").css("background-color","darkgrey");
+                } else {
+                    this.innerHTML = "CLICK OFF";
+                    //$(".btn").css("background-color","deeppink");
+                }
                 var time = new Date().getTime();
-
                 $("#desc").html(desc).slideToggle();
-                $("#hello").html(time + "<hr/>" + hello).slideToggle();
-
+                $("#hello").html(time + "," + hello).slideToggle();
             });
         });
     </script>
@@ -43,6 +53,7 @@
 
 <body>
 <h1>这是一个h1标题</h1>
+<hr/>
 <p>这是一个p段落。</p>
 <button type="button" class="btn">CLICK ON</button>
 <!--<div th:text="${desc}"></div>-->
