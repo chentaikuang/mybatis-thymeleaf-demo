@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>小臣DEMO</title>
+    <style type="text/css">
+        h1 {
+            color: red;
+        }
+
+        p {
+            color: blue;
+        }
+
+        div {
+            size: 20px;
+            color: cadetblue;
+        }
+    </style>
+    <script th:src="@{http://code.jquery.com/jquery-3.1.1.min.js}" type="text/javascript"></script>
+    <script th:inline="javascript" type="text/javascript">
+        $(function () {
+
+            var hello = [[${hello}]];
+            console.info("hello=" + hello);
+
+            var desc = [[${desc}]];
+            console.info("desc=" + desc);
+
+            $(".btn").click(function () {
+
+                //$("p").slideToggle();
+
+                var time = new Date().getTime();
+
+                $("#desc").html(desc).slideToggle();
+                $("#hello").html(time + "<hr/>" + hello).slideToggle();
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+<h1>这是一个h1标题</h1>
+<p>这是一个p段落。</p>
+<button type="button" class="btn">CLICK ON</button>
+<!--<div th:text="${desc}"></div>-->
+<!--<div th:text="${hello}"></div>-->
+<div id="hello"></div>
+<div id="desc"></div>
+</body>
+</html>
