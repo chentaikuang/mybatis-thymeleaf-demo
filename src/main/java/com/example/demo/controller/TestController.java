@@ -3,8 +3,11 @@ package com.example.demo.controller;
 import com.example.demo.entity.UserInfo;
 import com.example.demo.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/test")
@@ -47,4 +50,19 @@ public class TestController {
         user.setAge(age);
         return userInfoService.changeAgeById(user);
     }
+
+    /**
+     * http://localhost:8888/test/addUser
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/addUser")
+    public boolean addUser() throws Exception {
+        boolean flag = userInfoService.addUser();
+        if (!flag){
+            throw new Exception("Create User Fail");
+        }
+        return flag;
+    }
+
 }

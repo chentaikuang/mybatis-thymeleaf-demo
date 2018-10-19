@@ -13,6 +13,10 @@
     id, name, age, remark
   </sql>
 
+  <select id="getUsers" resultMap="BaseResultMap">
+    select * from t_user_info order by id desc
+  </select>
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

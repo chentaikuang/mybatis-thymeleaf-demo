@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 public interface UserInfoDao {
     int deleteByPrimaryKey(Integer id);
 
@@ -17,4 +19,6 @@ public interface UserInfoDao {
     int updateByPrimaryKeySelective(UserInfo record);
 
     int updateByPrimaryKey(UserInfo record);
+
+    List<UserInfo> getUsers();
 }
