@@ -45,7 +45,7 @@ public class HtmlController {
     }
 
     /**
-     * http://localhost:8888/test/getAll
+     * http://localhost:8888/html/getAll
      * @param model
      * @return
      */
